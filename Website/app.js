@@ -30,20 +30,17 @@ const PACKAGES = {
 };
 
 const setTheme = () => {
-  const isDarkTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (isDarkTheme()) {
-    baseLayerLuminance.setValueFor(document.documentElement, StandardLuminance.DarkMode);
-  } else {
-    baseLayerLuminance.setValueFor(document.documentElement, StandardLuminance.LightMode);
-  }
+  // 常にダークモードに固定
+  baseLayerLuminance.setValueFor(document.documentElement, StandardLuminance.DarkMode);
 }
 
 (() => {
   setTheme();
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    setTheme();
-  });
+  // ブラウザのテーマ変更イベントリスナーを削除（コメントアウト）
+  // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  //   setTheme();
+  // });
 
   const packageGrid = document.getElementById('packageGrid');
 
@@ -228,4 +225,41 @@ const setTheme = () => {
   packageInfoListingHelp.addEventListener('click', () => {
     addListingToVccHelp.hidden = false;
   });
+
+  // Add to VCC ブロック内のボタンの文字色を強制的に設定
+  const addToVccBlock = document.querySelector('.addToVccBlock');
+  const setButtonTextColor = () => {
+    const buttons = addToVccBlock.querySelectorAll('fluent-button');
+    buttons.forEach(button => {
+      // CSS変数を直接設定
+      button.style.setProperty('--foreground-on-accent-rest', '#e2e2e2', 'important');
+      button.style.setProperty('--foreground-on-accent-hover', '#e2e2e2', 'important');
+      button.style.setProperty('--foreground-on-accent-active', '#e2e2e2', 'important');
+      button.style.setProperty('--neutral-foreground-rest', '#e2e2e2', 'important');
+      button.style.setProperty('--neutral-foreground-hover', '#e2e2e2', 'important');
+      button.style.setProperty('--neutral-foreground-active', '#e2e2e2', 'important');
+      button.style.color = '#e2e2e2';
+      
+      // Shadow DOM内の要素にもアクセス
+      if (button.shadowRoot) {
+        const control = button.shadowRoot.querySelector('.control');
+        if (control) {
+          control.style.color = '#e2e2e2';
+        }
+        const content = button.shadowRoot.querySelector('.content');
+        if (content) {
+          content.style.color = '#e2e2e2';
+        }
+      }
+    });
+  };
+
+  // 初期設定
+  setButtonTextColor();
+  
+  // MutationObserverで動的に追加されるボタンも監視
+  const observer = new MutationObserver(() => {
+    setButtonTextColor();
+  });
+  observer.observe(addToVccBlock, { childList: true, subtree: true });
 })();

@@ -1,6 +1,4 @@
 :root {
-  color-scheme: light dark;
-  
   /* カスタムカラーパレット */
   --primary-color: #df0139;
   --dark-color: #1e1e27;
@@ -441,4 +439,27 @@ fluent-data-grid-cell .caption2 {
 .addToVccBlock .control {
   color: #e2e2e2 !important;
   --foreground-on-accent-rest: #e2e2e2 !important;
+}
+
+.addToVccBlock * {
+  color: #e2e2e2 !important;
+}
+
+.addToVccBlock [part="control"] {
+  color: #e2e2e2 !important;
+  --foreground-on-accent-rest: #e2e2e2 !important;
+}
+
+.addToVccBlock [part="content"] {
+  color: #e2e2e2 !important;
+}
+
+/* Fluent UIテーマシステムに対抗するための強力な上書き */
+.addToVccBlock fluent-button {
+  --foreground-on-accent-rest: #e2e2e2 !important;
+  --foreground-on-accent-hover: #e2e2e2 !important;
+  --foreground-on-accent-active: #e2e2e2 !important;
+  --neutral-foreground-rest: #e2e2e2 !important;
+  --neutral-foreground-hover: #e2e2e2 !important;
+  --neutral-foreground-active: #e2e2e2 !important;
 }
