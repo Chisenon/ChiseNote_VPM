@@ -423,3 +423,22 @@ fluent-data-grid-cell .caption2 {
   border-radius: 8px;
   color: #e2e2e2;
 }
+
+.addToVccBlock button,
+.addToVccBlock fluent-button {
+  color: #e2e2e2 !important;
+  --neutral-foreground-rest: #e2e2e2 !important;
+  --neutral-foreground-hover: #e2e2e2 !important;
+  --neutral-foreground-active: #e2e2e2 !important;
+  --foreground-on-accent-rest: #e2e2e2 !important;
+}
+
+.addToVccBlock button .content,
+.addToVccBlock fluent-button .content {
+  color: #e2e2e2 !important;
+}
+
+.addToVccBlock .control {
+  color: #e2e2e2 !important;
+  --foreground-on-accent-rest: #e2e2e2 !important;
+}
