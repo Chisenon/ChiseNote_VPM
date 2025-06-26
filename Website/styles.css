@@ -538,3 +538,41 @@ fluent-button {
 .addToVccBlock fluent-button::part(control):focus {
   background-color: #1e1e27 !important;
 }
+
+.rowAddToVccButton {
+  color: #e2e2e2 !important;
+  --foreground-on-accent-rest: #e2e2e2 !important;
+  --foreground-on-accent-hover: #e2e2e2 !important;
+  --foreground-on-accent-active: #e2e2e2 !important;
+  --neutral-foreground-rest: #e2e2e2 !important;
+  --neutral-foreground-hover: #e2e2e2 !important;
+  --neutral-foreground-active: #e2e2e2 !important;
+}
+
+.rowAddToVccButton:hover {
+  color: #e2e2e2 !important;
+}
+
+.rowAddToVccButton::part(control),
+.rowAddToVccButton::part(content) {
+  color: #e2e2e2 !important;
+}
+
+.rowAddToVccButton::part(control):hover,
+.rowAddToVccButton::part(content):hover {
+  color: #e2e2e2 !important;
+}
+
+.rowAddToVccButton .control,
+.rowAddToVccButton .content,
+.rowAddToVccButton span,
+.rowAddToVccButton div {
+  color: #e2e2e2 !important;
+}
+
+.rowAddToVccButton:hover .control,
+.rowAddToVccButton:hover .content,
+.rowAddToVccButton:hover span,
+.rowAddToVccButton:hover div {
+  color: #e2e2e2 !important;
+}

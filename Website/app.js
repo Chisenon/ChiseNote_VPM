@@ -146,6 +146,63 @@ const setTheme = () => {
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach((button) => {
     button.addEventListener('click', () => window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(LISTING_URL)}`));
+    
+    button.style.setProperty('--foreground-on-accent-rest', '#e2e2e2', 'important');
+    button.style.setProperty('--foreground-on-accent-hover', '#e2e2e2', 'important');
+    button.style.setProperty('--foreground-on-accent-active', '#e2e2e2', 'important');
+    button.style.setProperty('--neutral-foreground-rest', '#e2e2e2', 'important');
+    button.style.setProperty('--neutral-foreground-hover', '#e2e2e2', 'important');
+    button.style.setProperty('--neutral-foreground-active', '#e2e2e2', 'important');
+    button.style.color = '#e2e2e2';
+    
+    button.addEventListener('mouseenter', () => {
+      button.style.setProperty('color', '#e2e2e2', 'important');
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      button.style.setProperty('color', '#e2e2e2', 'important');
+    });
+    
+    const attemptRowButtonStyling = () => {
+      if (button.shadowRoot) {
+        const control = button.shadowRoot.querySelector('.control');
+        if (control) {
+          control.style.setProperty('color', '#e2e2e2', 'important');
+          control.addEventListener('mouseenter', () => {
+            control.style.setProperty('color', '#e2e2e2', 'important');
+          });
+          control.addEventListener('mouseleave', () => {
+            control.style.setProperty('color', '#e2e2e2', 'important');
+          });
+        }
+        const content = button.shadowRoot.querySelector('.content');
+        if (content) {
+          content.style.setProperty('color', '#e2e2e2', 'important');
+          content.addEventListener('mouseenter', () => {
+            content.style.setProperty('color', '#e2e2e2', 'important');
+          });
+          content.addEventListener('mouseleave', () => {
+            content.style.setProperty('color', '#e2e2e2', 'important');
+          });
+        }
+        const allElements = button.shadowRoot.querySelectorAll('*');
+        allElements.forEach(el => {
+          if (el.classList.contains('control') || el.classList.contains('content')) {
+            el.style.setProperty('color', '#e2e2e2', 'important');
+            el.addEventListener('mouseenter', () => {
+              el.style.setProperty('color', '#e2e2e2', 'important');
+            });
+            el.addEventListener('mouseleave', () => {
+              el.style.setProperty('color', '#e2e2e2', 'important');
+            });
+          }
+        });
+      }
+    };
+    
+    attemptRowButtonStyling();
+    setTimeout(attemptRowButtonStyling, 100);
+    setTimeout(attemptRowButtonStyling, 500);
   });
 
   const rowPackageInfoButton = document.querySelectorAll('.rowPackageInfoButton');
