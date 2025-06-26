@@ -30,17 +30,11 @@ const PACKAGES = {
 };
 
 const setTheme = () => {
-  // 常にダークモードに固定
   baseLayerLuminance.setValueFor(document.documentElement, StandardLuminance.DarkMode);
 }
 
 (() => {
   setTheme();
-
-  // ブラウザのテーマ変更イベントリスナーを削除（コメントアウト）
-  // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-  //   setTheme();
-  // });
 
   const packageGrid = document.getElementById('packageGrid');
 
@@ -135,7 +129,6 @@ const setTheme = () => {
     packageInfoModal.hidden = true;
   });
 
-  // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
   const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
   modalControl.style.maxHeight = "90%";
   modalControl.style.transition = 'height 0.2s ease-in-out';
@@ -226,40 +219,63 @@ const setTheme = () => {
     addListingToVccHelp.hidden = false;
   });
 
-  // Add to VCC ブロック内のボタンの文字色を強制的に設定
   const addToVccBlock = document.querySelector('.addToVccBlock');
   const setButtonTextColor = () => {
     const buttons = addToVccBlock.querySelectorAll('fluent-button');
     buttons.forEach(button => {
-      // CSS変数を直接設定
       button.style.setProperty('--foreground-on-accent-rest', '#e2e2e2', 'important');
       button.style.setProperty('--foreground-on-accent-hover', '#e2e2e2', 'important');
       button.style.setProperty('--foreground-on-accent-active', '#e2e2e2', 'important');
       button.style.setProperty('--neutral-foreground-rest', '#e2e2e2', 'important');
       button.style.setProperty('--neutral-foreground-hover', '#e2e2e2', 'important');
       button.style.setProperty('--neutral-foreground-active', '#e2e2e2', 'important');
+      
+      button.style.setProperty('--accent-fill-active', '#1e1e27', 'important');
+      button.style.setProperty('--accent-fill-focus', '#1e1e27', 'important');
+      button.style.setProperty('--neutral-fill-active', '#1e1e27', 'important');
+      button.style.setProperty('--neutral-fill-focus', '#1e1e27', 'important');
+      button.style.setProperty('--neutral-fill-stealth-active', '#1e1e27', 'important');
+      button.style.setProperty('--neutral-fill-stealth-focus', '#1e1e27', 'important');
+      
       button.style.color = '#e2e2e2';
       
-      // Shadow DOM内の要素にもアクセス
-      if (button.shadowRoot) {
-        const control = button.shadowRoot.querySelector('.control');
-        if (control) {
-          control.style.color = '#e2e2e2';
+      const attemptShadowDOMStyling = () => {
+        if (button.shadowRoot) {
+          const control = button.shadowRoot.querySelector('.control');
+          if (control) {
+            control.style.setProperty('color', '#e2e2e2', 'important');
+            control.style.setProperty('--foreground-on-accent-rest', '#e2e2e2', 'important');
+            control.style.setProperty('background-color', '#1e1e27', 'important');
+          }
+          const content = button.shadowRoot.querySelector('.content');
+          if (content) {
+            content.style.setProperty('color', '#e2e2e2', 'important');
+          }
+          const allElements = button.shadowRoot.querySelectorAll('*');
+          allElements.forEach(el => {
+            if (el.classList.contains('control') || el.classList.contains('content')) {
+              el.style.setProperty('color', '#e2e2e2', 'important');
+            }
+          });
         }
-        const content = button.shadowRoot.querySelector('.content');
-        if (content) {
-          content.style.color = '#e2e2e2';
-        }
-      }
+      };
+      
+      attemptShadowDOMStyling();
+      
+      setTimeout(attemptShadowDOMStyling, 100);
+      setTimeout(attemptShadowDOMStyling, 500);
     });
   };
 
-  // 初期設定
   setButtonTextColor();
+  setTimeout(setButtonTextColor, 100);
+  setTimeout(setButtonTextColor, 500);
+  setTimeout(setButtonTextColor, 1000);
   
-  // MutationObserverで動的に追加されるボタンも監視
   const observer = new MutationObserver(() => {
     setButtonTextColor();
   });
   observer.observe(addToVccBlock, { childList: true, subtree: true });
+
+  setInterval(setButtonTextColor, 2000);
 })();

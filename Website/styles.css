@@ -1,10 +1,8 @@
 :root {
-  /* カスタムカラーパレット */
   --primary-color: #df0139;
   --dark-color: #1e1e27;
   --light-color: #e2e2e2;
   
-  /* カラーオーバーライド */
   --neutral-foreground-rest: #1e1e27;
   --neutral-foreground-hover: #df0139;
   --accent-fill-rest: #df0139;
@@ -379,7 +377,6 @@ h1 {
   flex: 1;
 }
 
-/* カスタムスタイル追加 */
 fluent-button[appearance="accent"] {
   --accent-fill-rest: var(--primary-color) !important;
   --accent-fill-hover: #c5012e !important;
@@ -395,7 +392,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Data grid cell text styling */
 fluent-data-grid-cell {
   color: var(--light-color) !important;
 }
@@ -454,7 +450,6 @@ fluent-data-grid-cell .caption2 {
   color: #e2e2e2 !important;
 }
 
-/* Fluent UIテーマシステムに対抗するための強力な上書き */
 .addToVccBlock fluent-button {
   --foreground-on-accent-rest: #e2e2e2 !important;
   --foreground-on-accent-hover: #e2e2e2 !important;
@@ -462,4 +457,67 @@ fluent-data-grid-cell .caption2 {
   --neutral-foreground-rest: #e2e2e2 !important;
   --neutral-foreground-hover: #e2e2e2 !important;
   --neutral-foreground-active: #e2e2e2 !important;
+}
+
+:host(.addToVccBlock) .control,
+:host(.addToVccBlock) ::part(control) {
+  color: #e2e2e2 !important;
+}
+
+html {
+  --addToVcc-text-color: #e2e2e2;
+}
+
+fluent-button {
+  --foreground-on-accent-rest: var(--addToVcc-text-color, #e2e2e2) !important;
+  --neutral-foreground-rest: var(--addToVcc-text-color, #e2e2e2) !important;
+}
+
+.addToVccBlock fluent-button::part(control) {
+  color: #e2e2e2 !important;
+  --foreground-on-accent-rest: #e2e2e2 !important;
+}
+
+.addToVccBlock fluent-button,
+.addToVccBlock fluent-button *,
+.addToVccBlock fluent-button::before,
+.addToVccBlock fluent-button::after {
+  color: #e2e2e2 !important;
+}
+
+.addToVccBlock {
+  --fluent-button-text-color: #e2e2e2;
+}
+
+.addToVccBlock fluent-button {
+  color: var(--fluent-button-text-color) !important;
+}
+
+.addToVccBlock fluent-button .control,
+.addToVccBlock fluent-button .content,
+.addToVccBlock fluent-button span,
+.addToVccBlock fluent-button div {
+  color: #e2e2e2 !important;
+}
+
+.addToVccBlock fluent-button {
+  --accent-fill-active: #1e1e27 !important;
+  --accent-fill-focus: #1e1e27 !important;
+  --neutral-fill-active: #1e1e27 !important;
+  --neutral-fill-focus: #1e1e27 !important;
+  --neutral-fill-stealth-active: #1e1e27 !important;
+  --neutral-fill-stealth-focus: #1e1e27 !important;
+}
+
+.addToVccBlock fluent-button:active,
+.addToVccBlock fluent-button:focus,
+.addToVccBlock fluent-button[aria-pressed="true"] {
+  background-color: #1e1e27 !important;
+  --accent-fill-rest: #1e1e27 !important;
+  --neutral-fill-rest: #1e1e27 !important;
+}
+
+.addToVccBlock fluent-button::part(control):active,
+.addToVccBlock fluent-button::part(control):focus {
+  background-color: #1e1e27 !important;
 }
