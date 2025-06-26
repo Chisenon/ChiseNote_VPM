@@ -26,8 +26,8 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--neutral-foreground-rest);
-  background-color: var(--light-color);
+  color: var(--light-color);
+  background-color: var(--dark-color);
 }
 
 .hidden {
@@ -48,11 +48,9 @@ body {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--dark-color);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(30, 30, 39, 0.15);
-  border: 1px solid rgba(30, 30, 39, 0.1);
 }
 
 .align-items-center {
@@ -69,18 +67,18 @@ body {
 
 h1 {
   margin-bottom: 0.5rem;
-  color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .caption1 {
   font-size: 1rem;
-  color: var(--neutral-foreground-hover);
+  color: var(--light-color);
 }
 
 .caption2 {
   font-size: 0.8rem;
   margin-top: 0.25rem;
-  color: var(--neutral-foreground-rest);
+  color: var(--light-color);
 }
 
 .packages {
@@ -89,10 +87,10 @@ h1 {
   padding: 0.25rem;
   display: flex;
   flex: 1;
-  background-color: white;
-  border: 1px solid rgba(30, 30, 39, 0.1);
+  background-color: var(--dark-color);
+  border: 1px solid var(--light-color);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(30, 30, 39, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #packageGrid {
@@ -105,17 +103,17 @@ h1 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.25rem 0;
-  color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .searchBlock {
   margin-top: 1rem;
   width: 100%;
   max-width: 90%;
-  background-color: white;
+  background-color: var(--dark-color);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(30, 30, 39, 0.1);
+  border: 1px solid var(--light-color);
 }
 
 .searchBlock .root {
@@ -150,7 +148,7 @@ h1 {
 #rowMoreMenu a {
   display: block;
   text-decoration: none;
-  color: var(--neutral-foreground-rest);
+  color: var(--light-color);
 }
 
 .bannerImage {
@@ -167,7 +165,8 @@ h1 {
 .badge {
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
-  background-color: var(--neutral-fill-hover);
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
 .m-0 {
@@ -398,9 +397,31 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Data grid cell text styling */
+fluent-data-grid-cell {
+  color: var(--light-color) !important;
+}
+
+fluent-data-grid-cell .col {
+  color: var(--light-color);
+}
+
+fluent-data-grid-cell .packageName {
+  color: var(--light-color);
+}
+
+fluent-data-grid-cell .caption1 {
+  color: var(--light-color);
+}
+
+fluent-data-grid-cell .caption2 {
+  color: var(--light-color);
+}
+
 .addToVccBlock {
-  background-color: rgba(223, 1, 57, 0.05);
+  background-color: rgba(223, 1, 57, 0.15);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(223, 1, 57, 0.2);
+  border: 1px solid var(--primary-color);
+  color: var(--light-color);
 }
