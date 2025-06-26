@@ -1,5 +1,16 @@
 :root {
   color-scheme: light dark;
+  
+  /* カスタムカラーパレット */
+  --primary-color: #df0139;
+  --dark-color: #1e1e27;
+  --light-color: #e2e2e2;
+  
+  /* カラーオーバーライド */
+  --neutral-foreground-rest: #1e1e27;
+  --neutral-foreground-hover: #df0139;
+  --accent-fill-rest: #df0139;
+  --neutral-fill-hover: rgba(223, 1, 57, 0.1);
 }
 
 * {
@@ -16,6 +27,7 @@ body {
   justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--neutral-foreground-rest);
+  background-color: var(--light-color);
 }
 
 .hidden {
@@ -36,6 +48,11 @@ body {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(30, 30, 39, 0.15);
+  border: 1px solid rgba(30, 30, 39, 0.1);
 }
 
 .align-items-center {
@@ -52,6 +69,7 @@ body {
 
 h1 {
   margin-bottom: 0.5rem;
+  color: var(--dark-color);
 }
 
 .caption1 {
@@ -71,6 +89,10 @@ h1 {
   padding: 0.25rem;
   display: flex;
   flex: 1;
+  background-color: white;
+  border: 1px solid rgba(30, 30, 39, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(30, 30, 39, 0.1);
 }
 
 #packageGrid {
@@ -83,12 +105,17 @@ h1 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.25rem 0;
+  color: var(--dark-color);
 }
 
 .searchBlock {
   margin-top: 1rem;
   width: 100%;
   max-width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(30, 30, 39, 0.1);
 }
 
 .searchBlock .root {
@@ -353,4 +380,27 @@ h1 {
 
 .flex-1 {
   flex: 1;
+}
+
+/* カスタムスタイル追加 */
+fluent-button[appearance="accent"] {
+  --accent-fill-rest: var(--primary-color) !important;
+  --accent-fill-hover: #c5012e !important;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c5012e;
+  text-decoration: underline;
+}
+
+.addToVccBlock {
+  background-color: rgba(223, 1, 57, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(223, 1, 57, 0.2);
 }
