@@ -239,6 +239,14 @@ const setTheme = () => {
       
       button.style.color = '#e2e2e2';
       
+      button.addEventListener('mouseenter', () => {
+        button.style.setProperty('color', '#e2e2e2', 'important');
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        button.style.setProperty('color', '#e2e2e2', 'important');
+      });
+      
       const attemptShadowDOMStyling = () => {
         if (button.shadowRoot) {
           const control = button.shadowRoot.querySelector('.control');
@@ -246,15 +254,39 @@ const setTheme = () => {
             control.style.setProperty('color', '#e2e2e2', 'important');
             control.style.setProperty('--foreground-on-accent-rest', '#e2e2e2', 'important');
             control.style.setProperty('background-color', '#1e1e27', 'important');
+            
+            control.addEventListener('mouseenter', () => {
+              control.style.setProperty('color', '#e2e2e2', 'important');
+            });
+            
+            control.addEventListener('mouseleave', () => {
+              control.style.setProperty('color', '#e2e2e2', 'important');
+            });
           }
           const content = button.shadowRoot.querySelector('.content');
           if (content) {
             content.style.setProperty('color', '#e2e2e2', 'important');
+            
+            content.addEventListener('mouseenter', () => {
+              content.style.setProperty('color', '#e2e2e2', 'important');
+            });
+            
+            content.addEventListener('mouseleave', () => {
+              content.style.setProperty('color', '#e2e2e2', 'important');
+            });
           }
           const allElements = button.shadowRoot.querySelectorAll('*');
           allElements.forEach(el => {
             if (el.classList.contains('control') || el.classList.contains('content')) {
               el.style.setProperty('color', '#e2e2e2', 'important');
+              
+              el.addEventListener('mouseenter', () => {
+                el.style.setProperty('color', '#e2e2e2', 'important');
+              });
+              
+              el.addEventListener('mouseleave', () => {
+                el.style.setProperty('color', '#e2e2e2', 'important');
+              });
             }
           });
         }
