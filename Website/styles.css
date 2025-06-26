@@ -419,9 +419,7 @@ fluent-data-grid-cell .caption2 {
 }
 
 .addToVccBlock {
-  background-color: rgba(223, 1, 57, 0.15);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid var(--primary-color);
-  color: var(--light-color);
+  color: #e2e2e2;
 }
