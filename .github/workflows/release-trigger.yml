@@ -29,6 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
+      - name: Debug repository_dispatch event
+        run: |
+          echo "Event triggered by: ${{ github.event.client_payload.repository }}"
+          echo "Version: ${{ github.event.client_payload.version }}"
+          echo "Event type: ${{ github.event.action }}"
+      
       - uses: actions/checkout@v4 # check out this repo
       - uses: actions/checkout@v4 # check out automation repo
         with:
