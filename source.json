@@ -9,6 +9,7 @@
     "description":"Chisenon's VPM packages.",
     "bannerUrl":"",
     "githubRepos":[
-        "chisenon/test_vpm"
+        "chisenon/test_vpm",
+        "chisenon/nyan_vpm"
     ]
 }
